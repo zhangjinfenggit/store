@@ -31,7 +31,7 @@ public class SellerPanel extends JPanel {
 		this.setSize(994, 577);
 		setLayout(null);
 
-		JPanel panel = new JPanel();
+		JPanel panel = new SellerMenu();
 		panel.setBorder(new TitledBorder(new EtchedBorder()));
 		panel.setBounds(0, 0, 175, 577);
 		add(panel);
