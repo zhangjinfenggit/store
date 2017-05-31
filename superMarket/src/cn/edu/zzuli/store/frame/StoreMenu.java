@@ -6,6 +6,11 @@ import javax.swing.event.TreeSelectionEvent;
 import javax.swing.event.TreeSelectionListener;
 import javax.swing.tree.DefaultMutableTreeNode;
 
+/**
+ * 
+ * @author zhangjinfeng
+ * @date 2017年5月31日上午11:17:51 TODO
+ */
 public class StoreMenu extends JPanel {
 
 	public StoreMenu() {

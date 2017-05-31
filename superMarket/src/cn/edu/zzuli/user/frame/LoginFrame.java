@@ -24,11 +24,16 @@ import javax.swing.JTextField;
 import cn.edu.zzuli.user.service.UserService;
 import cn.edu.zzuli.utils.MyBackground;
 
+/**
+ * 
+ * @author zhangjinfeng
+ * @date 2017年5月24日上午8:20:51 TODO
+ */
 @SuppressWarnings("all")
 public class LoginFrame {
 
 	private JFrame frame;
-	private  MainFrame dialog;
+	private MainFrame dialog;
 	private JTextField textField;
 	private JPasswordField textField_1;
 	private JButton btnNewButton;

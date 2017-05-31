@@ -7,6 +7,11 @@ import com.mysql.jdbc.StringUtils;
 import cn.edu.zzuli.dao.BaseDao;
 import cn.edu.zzuli.store.vo.Store;
 
+/**
+ * 
+ * @author zhangjinfeng
+ * @date 2017年5月31日上午8:17:51 TODO
+ */
 public class StoreDao extends BaseDao {
 
 	public List<Store> findAll() {

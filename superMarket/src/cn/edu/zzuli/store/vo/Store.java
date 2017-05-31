@@ -2,6 +2,11 @@ package cn.edu.zzuli.store.vo;
 
 import java.util.Date;
 
+/**
+ * 
+ * @author zhangjinfeng
+ * @date 2017年5月31日上午8:34:51 TODO
+ */
 public class Store {
 
 	private int id;

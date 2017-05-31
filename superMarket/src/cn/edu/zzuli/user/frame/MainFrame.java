@@ -1,9 +1,12 @@
 package cn.edu.zzuli.user.frame;
 
+import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Cursor;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.util.Timer;
+import java.util.TimerTask;
 
 import javax.swing.BorderFactory;
 import javax.swing.ImageIcon;
@@ -13,12 +16,19 @@ import javax.swing.JLabel;
 import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JPanel;
+import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.border.EtchedBorder;
 import javax.swing.border.TitledBorder;
 
-import cn.edu.zzuli.store.frame.StorePanel;
+import cn.edu.zzuli.dept.frame.DeptPanel;
+import cn.edu.zzuli.utils.Format;
 
+/**
+ * 
+ * @author zhangjinfeng
+ * @date 2017年5月24日上午9:17:51 TODO
+ */
 @SuppressWarnings("all")
 public class MainFrame {
 
@@ -182,13 +192,40 @@ public class MainFrame {
 		panel_1.setBorder(new TitledBorder(new EtchedBorder()));
 		panel_1.setLayout(null);
 
-		center = new StorePanel(frame);
-		center.setBounds(2, 2, 990, 552);
+		center = new DeptPanel(frame);
+		center.setBounds(0, 0, 990, 555);
 		center.setBorder(new TitledBorder(new EtchedBorder()));
 		center.setOpaque(false);
 
 		panel_1.add(center);
+		panel_1.setBorder(new TitledBorder(new EtchedBorder()));
 		panel.add(panel_1);
+		JPanel panel_2 = new JPanel();
+		panel_2.setBounds(0, 618, 994, 33);
+		panel_2.setBorder(new TitledBorder(new EtchedBorder()));
+		panel_2.setOpaque(true);
+		panel.add(panel_2);
+		panel_2.setLayout(new BorderLayout(0, 0));
+
+		JScrollPane scrollPane = new JScrollPane();
+		scrollPane.setBorder(new TitledBorder(new EtchedBorder()));
+		scrollPane.setBorder(new TitledBorder(new EtchedBorder()));
+		panel_2.add(scrollPane);
+
+		final JLabel lblNewLabel_2 = new JLabel("", JLabel.CENTER);
+		lblNewLabel_2.setForeground(Color.BLUE);
+		scrollPane.setViewportView(lblNewLabel_2);
+
+		Timer timer = new Timer();
+		timer.schedule(new TimerTask() {
+
+			@Override
+			public void run() {
+				lblNewLabel_2.setText(Format.getLocalDate());
+				lblNewLabel_2.repaint();
+			}
+		}, 0, 1000);
+
 		frame.setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
 		frame.setVisible(true);
 		frame.setResizable(false);

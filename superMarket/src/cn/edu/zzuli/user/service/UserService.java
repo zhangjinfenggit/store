@@ -3,6 +3,11 @@ package cn.edu.zzuli.user.service;
 import cn.edu.zzuli.user.dao.UserDao;
 import cn.edu.zzuli.user.vo.User;
 
+/**
+ * 
+ * @author zhangjinfeng
+ * @date 2017年5月24日上午10:17:1 TODO
+ */
 public class UserService {
 
 	/**

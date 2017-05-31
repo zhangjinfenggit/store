@@ -5,6 +5,11 @@ import java.util.List;
 import cn.edu.zzuli.record.dao.SellerDao;
 import cn.edu.zzuli.record.vo.Seller;
 
+/**
+ * 
+ * @author zhangjinfeng
+ * @date 2017年5月31日下午3:23:16 TODO
+ */
 public class SellerService {
 
 	public List<Seller> findAll() {

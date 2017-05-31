@@ -8,6 +8,11 @@ import javax.swing.table.AbstractTableModel;
 import cn.edu.zzuli.store.service.StoreService;
 import cn.edu.zzuli.store.vo.Store;
 
+/**
+ * 
+ * @author zhangjinfeng
+ * @date 2017年5月31日上午8:22:51 TODO
+ */
 @SuppressWarnings("all")
 public class StoreTableModel extends AbstractTableModel {
 

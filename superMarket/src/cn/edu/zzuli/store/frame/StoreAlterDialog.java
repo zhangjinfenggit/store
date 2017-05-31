@@ -15,6 +15,11 @@ import cn.edu.zzuli.store.model.StoreTableModel;
 import cn.edu.zzuli.store.service.StoreService;
 import cn.edu.zzuli.store.vo.Store;
 
+/**
+ * 
+ * @author zhangjinfeng
+ * @date 2017年5月31日上午8:27:51 TODO
+ */
 public class StoreAlterDialog extends JDialog {
 
 	private JTextField textField;

@@ -8,10 +8,9 @@ import javax.sql.DataSource;
 import com.mchange.v2.c3p0.ComboPooledDataSource;
 
 /**
- * JDBC 工具类，抽取公共方法
  * 
- * @author seawind
- * 
+ * @author zhangjinfeng
+ * @date 2017年5月30日下午1:16:19 TODO
  */
 public class JDBCUtils {
 	// 获得数据库连接 --- 通过c3p0连接池

@@ -7,6 +7,11 @@ import cn.edu.zzuli.store.dao.StoreDao;
 import cn.edu.zzuli.store.vo.Store;
 import cn.edu.zzuli.utils.Format;
 
+/**
+ * 
+ * @author zhangjinfeng
+ * @date 2017年5月31日上午8:28:51 TODO
+ */
 public class StoreService {
 
 	public List<Store> findAll() {

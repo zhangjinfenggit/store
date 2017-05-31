@@ -21,6 +21,11 @@ import cn.edu.zzuli.store.model.StoreTableModel;
 import cn.edu.zzuli.store.service.StoreService;
 import cn.edu.zzuli.store.vo.Store;
 
+/**
+ * 
+ * @author zhangjinfeng
+ * @date 2017年5月31日上午11:17:51 TODO
+ */
 public class StorePanel extends JPanel {
 	private JTextField textField_1;
 	public JTable table = null;
