@@ -21,7 +21,7 @@ import javax.swing.JTable;
 import javax.swing.border.EtchedBorder;
 import javax.swing.border.TitledBorder;
 
-import cn.edu.zzuli.purchase.frame.PurchasePanel;
+import cn.edu.zzuli.store.frame.inStore.InStorePanel;
 import cn.edu.zzuli.utils.Format;
 
 /**
@@ -60,7 +60,7 @@ public class MainFrame {
 		frame.getContentPane().add(panel);
 
 		final JLabel lblNewLabel = new JLabel("New label");
-		lblNewLabel.setBounds(96, 0, 36, 41);
+		lblNewLabel.setBounds(139, 0, 36, 41);
 		lblNewLabel.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseEntered(MouseEvent e) {
@@ -78,7 +78,7 @@ public class MainFrame {
 		panel.add(lblNewLabel);
 
 		final JLabel label = new JLabel("New label");
-		label.setBounds(243, 0, 36, 41);
+		label.setBounds(299, 0, 36, 41);
 		label.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseEntered(MouseEvent e) {
@@ -95,7 +95,7 @@ public class MainFrame {
 		panel.add(label);
 
 		final JLabel label_1 = new JLabel("New label");
-		label_1.setBounds(390, 0, 36, 42);
+		label_1.setBounds(463, -1, 36, 42);
 		label_1.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseEntered(MouseEvent e) {
@@ -108,28 +108,11 @@ public class MainFrame {
 				label_1.setBorder(null);
 			}
 		});
-		label_1.setIcon(new ImageIcon(MainFrame.class.getResource("/img/\u5165\u5E93\u7BA1\u7406.png")));
+		label_1.setIcon(new ImageIcon(MainFrame.class.getResource("/img/库存管理.png")));
 		panel.add(label_1);
 
-		final JLabel label_2 = new JLabel("New label");
-		label_2.setBounds(534, 0, 36, 41);
-		label_2.addMouseListener(new MouseAdapter() {
-			@Override
-			public void mouseEntered(MouseEvent e) {
-				label_2.setBorder(BorderFactory.createLineBorder(Color.black));
-				label_2.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
-			}
-
-			@Override
-			public void mouseExited(MouseEvent e) {
-				label_2.setBorder(null);
-			}
-		});
-		label_2.setIcon(new ImageIcon(MainFrame.class.getResource("/img/\u51FA\u5E93\u7BA1\u7406.png")));
-		panel.add(label_2);
-
 		final JLabel label_3 = new JLabel("New label");
-		label_3.setBounds(695, 0, 36, 41);
+		label_3.setBounds(621, 0, 36, 41);
 		label_3.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseEntered(MouseEvent e) {
@@ -146,7 +129,7 @@ public class MainFrame {
 		panel.add(label_3);
 
 		final JLabel label_4 = new JLabel("New label");
-		label_4.setBounds(846, 0, 36, 41);
+		label_4.setBounds(783, 0, 36, 41);
 		label_4.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseEntered(MouseEvent e) {
@@ -164,27 +147,23 @@ public class MainFrame {
 		panel.add(label_4);
 
 		JLabel lblNewLabel_1 = new JLabel("\u57FA\u672C\u6863\u6848");
-		lblNewLabel_1.setBounds(93, 41, 54, 15);
+		lblNewLabel_1.setBounds(132, 41, 54, 15);
 		panel.add(lblNewLabel_1);
 
 		JLabel label_5 = new JLabel("\u91C7\u8D2D\u8BA2\u5355");
-		label_5.setBounds(236, 41, 54, 15);
+		label_5.setBounds(291, 41, 54, 15);
 		panel.add(label_5);
 
-		JLabel label_6 = new JLabel("\u5165\u5E93\u7BA1\u7406");
-		label_6.setBounds(379, 41, 54, 15);
+		JLabel label_6 = new JLabel("库存管理");
+		label_6.setBounds(457, 40, 54, 15);
 		panel.add(label_6);
 
-		JLabel label_7 = new JLabel("\u51FA\u5E93\u7BA1\u7406");
-		label_7.setBounds(532, 41, 54, 15);
-		panel.add(label_7);
-
 		JLabel label_8 = new JLabel("\u4EBA\u5458\u7BA1\u7406");
-		label_8.setBounds(689, 41, 54, 15);
+		label_8.setBounds(618, 41, 54, 15);
 		panel.add(label_8);
 
 		JLabel label_9 = new JLabel("\u90E8\u95E8\u7BA1\u7406");
-		label_9.setBounds(846, 41, 54, 15);
+		label_9.setBounds(776, 41, 54, 15);
 		panel.add(label_9);
 
 		JPanel panel_1 = new JPanel();
@@ -192,7 +171,7 @@ public class MainFrame {
 		panel_1.setBorder(new TitledBorder(new EtchedBorder()));
 		panel_1.setLayout(null);
 
-		center = new PurchasePanel(frame);
+		center = new InStorePanel(frame);
 		center.setBounds(0, 0, 990, 555);
 		center.setBorder(new TitledBorder(new EtchedBorder()));
 		center.setOpaque(false);
