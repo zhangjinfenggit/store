@@ -16,6 +16,11 @@ import cn.edu.zzuli.dept.model.DeptTableModel;
 import cn.edu.zzuli.dept.service.DeptService;
 import cn.edu.zzuli.dept.vo.Dept;
 
+/**
+ * 
+ * @author zhangjinfeng
+ * @date 2017年5月31日下午6:21:09 TODO
+ */
 public class DeptAlterDialog extends JDialog {
 
 	private JTextField textField;

@@ -25,7 +25,7 @@ public class Format {
 
 	public static String getLocalDate() {
 
-		SimpleDateFormat sdf = new SimpleDateFormat("yyyy年MM月dd日  hh:mm:ss");
+		SimpleDateFormat sdf = new SimpleDateFormat("yyyy年MM月dd日  HH:mm:ss");
 
 		return sdf.format(new Date());
 	}

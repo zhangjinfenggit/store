@@ -1,4 +1,4 @@
-package cn.edu.zzuli.dept.frame;
+package cn.edu.zzuli.purchase.frame;
 
 import javax.swing.JPanel;
 import javax.swing.JTree;
@@ -9,16 +9,15 @@ import javax.swing.tree.DefaultMutableTreeNode;
 /**
  * 
  * @author zhangjinfeng
- * @date 2017年5月31日下午6:21:16 TODO
+ * @date 2017年5月31日上午11:17:51 TODO
  */
-public class DeptMenu extends JPanel {
+public class PurchaseMenu extends JPanel {
 
-	public DeptMenu() {
+	public PurchaseMenu() {
 
-		DefaultMutableTreeNode node1 = new DefaultMutableTreeNode("部门管理");
-		node1.add(new DefaultMutableTreeNode("部门信息"));
-		node1.add(new DefaultMutableTreeNode("部门日志"));
-
+		DefaultMutableTreeNode node1 = new DefaultMutableTreeNode("采购管理");
+		node1.add(new DefaultMutableTreeNode("采购管理"));
+		node1.add(new DefaultMutableTreeNode("采购报表"));
 		final JTree tree = new JTree(node1);
 
 		this.add(tree);

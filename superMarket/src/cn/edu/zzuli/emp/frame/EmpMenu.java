@@ -1,4 +1,4 @@
-package cn.edu.zzuli.dept.frame;
+package cn.edu.zzuli.emp.frame;
 
 import javax.swing.JPanel;
 import javax.swing.JTree;
@@ -6,18 +6,13 @@ import javax.swing.event.TreeSelectionEvent;
 import javax.swing.event.TreeSelectionListener;
 import javax.swing.tree.DefaultMutableTreeNode;
 
-/**
- * 
- * @author zhangjinfeng
- * @date 2017年5月31日下午6:21:16 TODO
- */
-public class DeptMenu extends JPanel {
+public class EmpMenu extends JPanel {
 
-	public DeptMenu() {
+	public EmpMenu() {
 
-		DefaultMutableTreeNode node1 = new DefaultMutableTreeNode("部门管理");
-		node1.add(new DefaultMutableTreeNode("部门信息"));
-		node1.add(new DefaultMutableTreeNode("部门日志"));
+		DefaultMutableTreeNode node1 = new DefaultMutableTreeNode("人员管理");
+		node1.add(new DefaultMutableTreeNode("员工信息"));
+		node1.add(new DefaultMutableTreeNode("员工日志"));
 
 		final JTree tree = new JTree(node1);
 

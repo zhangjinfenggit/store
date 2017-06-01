@@ -21,7 +21,7 @@ import javax.swing.JTable;
 import javax.swing.border.EtchedBorder;
 import javax.swing.border.TitledBorder;
 
-import cn.edu.zzuli.dept.frame.DeptPanel;
+import cn.edu.zzuli.purchase.frame.PurchasePanel;
 import cn.edu.zzuli.utils.Format;
 
 /**
@@ -192,7 +192,7 @@ public class MainFrame {
 		panel_1.setBorder(new TitledBorder(new EtchedBorder()));
 		panel_1.setLayout(null);
 
-		center = new DeptPanel(frame);
+		center = new PurchasePanel(frame);
 		center.setBounds(0, 0, 990, 555);
 		center.setBorder(new TitledBorder(new EtchedBorder()));
 		center.setOpaque(false);
