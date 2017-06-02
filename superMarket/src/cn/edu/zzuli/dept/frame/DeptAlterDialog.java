@@ -110,7 +110,7 @@ public class DeptAlterDialog extends JDialog {
 		button.setBounds(313, 301, 93, 23);
 		getContentPane().add(button);
 
-		JLabel label_10 = new JLabel("添加部门信息");
+		JLabel label_10 = new JLabel("修改部门信息");
 		label_10.setFont(new Font("宋体", Font.BOLD, 18));
 		label_10.setBounds(212, 31, 312, 30);
 		getContentPane().add(label_10);

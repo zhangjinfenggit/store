@@ -8,8 +8,9 @@ import cn.edu.zzuli.store.vo.InStore;
 /**
  * 
  * @author zhangjinfeng
- * @date 2017年5月31日上午8:28:51 TODO
+ * @date 2017年6月1日下午3:18:05 TODO
  */
+
 public class InStoreService {
 
 	public List<InStore> findAll() {

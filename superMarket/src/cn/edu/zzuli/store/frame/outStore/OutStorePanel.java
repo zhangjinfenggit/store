@@ -6,7 +6,6 @@ import java.awt.event.ActionListener;
 import java.util.List;
 
 import javax.swing.JButton;
-import javax.swing.JComboBox;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
@@ -17,77 +16,71 @@ import javax.swing.JTextField;
 import javax.swing.border.EtchedBorder;
 import javax.swing.border.TitledBorder;
 
-import cn.edu.zzuli.purchase.model.PurchaseTableModel;
-import cn.edu.zzuli.purchase.service.PurchaseService;
-import cn.edu.zzuli.purchase.vo.Purchase;
+import cn.edu.zzuli.store.model.OutStoreTableModel;
+import cn.edu.zzuli.store.service.OutStoreService;
+import cn.edu.zzuli.store.vo.OutStore;
 
 /**
  * 
  * @author zhangjinfeng
  * @date 2017年5月31日上午11:17:51 TODO
  */
-public class PurchasePanel extends JPanel {
+public class OutStorePanel extends JPanel {
 	private JTextField textField_1;
 	public JTable table = null;
-	public PurchaseService service;
-	private JComboBox comboBox = null;
+	public OutStoreService service;
+	private JTextField textField;
 
-	public PurchasePanel(final JFrame frame) {
-		service = new PurchaseService();
-		this.setSize(994, 577);
+	public OutStorePanel(final JFrame frame) {
+		service = new OutStoreService();
+		this.setBounds(0, 0, 818, 577);
 		setLayout(null);
-
-		JPanel panel = new PurchaseMenu();
-		panel.setBorder(new TitledBorder(new EtchedBorder()));
-		panel.setBounds(0, 0, 175, 577);
-		add(panel);
 
 		JPanel panel_1 = new JPanel();
 		panel_1.setBorder(new TitledBorder(new EtchedBorder()));
-		panel_1.setBounds(172, 0, 822, 577);
+		panel_1.setBounds(0, 0, 818, 577);
 		add(panel_1);
 		panel_1.setLayout(null);
 
 		JPanel panel_2 = new JPanel();
 		panel_2.setBorder(new TitledBorder(new EtchedBorder()));
-		panel_2.setBounds(0, 0, 822, 83);
+		panel_2.setBounds(0, 0, 815, 83);
 		panel_1.add(panel_2);
 		panel_2.setLayout(null);
 
-		JLabel label = new JLabel("客户名称");
+		JLabel label = new JLabel("仓库：");
 		label.setFont(new Font("宋体", Font.PLAIN, 14));
-		label.setBounds(31, 29, 75, 23);
+		label.setBounds(30, 29, 75, 23);
 		panel_2.add(label);
 
 		textField_1 = new JTextField();
 		textField_1.setColumns(10);
-		textField_1.setBounds(192, 29, 141, 23);
+		textField_1.setBounds(73, 29, 106, 23);
 		panel_2.add(textField_1);
 
 		JButton btnNewButton = new JButton("搜索");
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 
-				int condition = comboBox.getSelectedIndex();
-				String info = textField_1.getText();
-				List<Purchase> Purchases = service.getPurchaseByCondition(condition, info);
-
-				table.setModel(new PurchaseTableModel(Purchases));
+				String did = textField_1.getText();
+				String joinDate = textField.getText();
+				List<OutStore> OutStores = service.getOutStoreByCondition(did, joinDate);
+				table.setModel(new OutStoreTableModel(OutStores));
 
 				table.repaint();
 			}
 		});
-		btnNewButton.setBounds(343, 29, 75, 23);
+		btnNewButton.setBounds(384, 29, 75, 23);
 		panel_2.add(btnNewButton);
 
 		JButton button = new JButton("添加");
 		button.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 
-				new PurchaseAddDialog(frame, table);
+				new OutStoreAddDialog(frame, table);
 			}
 		});
-		button.setBounds(428, 29, 75, 23);
+		button.setBounds(480, 29, 75, 23);
 		panel_2.add(button);
 
 		JButton button_1 = new JButton("修改");
@@ -99,12 +92,12 @@ public class PurchasePanel extends JPanel {
 					JOptionPane.showMessageDialog(getThis(), "请选择一行");
 					return;
 				}
-				String id = ((PurchaseTableModel.rows.get(row)).get(0).toString());
+				String id = ((OutStoreTableModel.rows.get(row)).get(0).toString());
 
-				new PurchaseAlterDialog(frame, table, id);
+				new OutStoreAlterDialog(frame, table, id);
 			}
 		});
-		button_1.setBounds(513, 29, 75, 23);
+		button_1.setBounds(565, 29, 75, 23);
 		panel_2.add(button_1);
 
 		JButton button_2 = new JButton("删除");
@@ -115,51 +108,34 @@ public class PurchasePanel extends JPanel {
 					JOptionPane.showMessageDialog(getThis(), "请选择一行");
 					return;
 				}
-				String id = ((PurchaseTableModel.rows.get(row)).get(0).toString());
-				service.deletePurchaseById(id);
-				table.setModel(new PurchaseTableModel());
+				String id = ((OutStoreTableModel.rows.get(row)).get(0).toString());
+				service.deleteOutStoreById(id);
+				table.setModel(new OutStoreTableModel());
 				table.repaint();
 			}
 		});
-		button_2.setBounds(598, 29, 80, 23);
+		button_2.setBounds(650, 29, 80, 23);
 		panel_2.add(button_2);
-		String[] s = { "编号", "客户名", "订单号", "商品名", "交货日期" };
-		comboBox = new JComboBox(s);
 
-		comboBox.setBounds(96, 30, 80, 21);
-		panel_2.add(comboBox);
+		JLabel label_1 = new JLabel("出库时间：");
+		label_1.setFont(new Font("宋体", Font.PLAIN, 14));
+		label_1.setBounds(189, 29, 75, 23);
+		panel_2.add(label_1);
 
-		JButton button_3 = new JButton("入库");
-		button_3.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				int row = table.getSelectedRow();
-				if (row == -1) {
-					JOptionPane.showMessageDialog(getThis(), "请选择一行");
-					return;
-				}
-				String id = ((PurchaseTableModel.rows.get(row)).get(0).toString());
-				int confirm = JOptionPane.showConfirmDialog(getThis(), "确定要入库么？");
-
-				if (confirm == 0) {
-					service.pushPurchase(id);
-					table.setModel(new PurchaseTableModel());
-					table.repaint();
-				}
-
-			}
-		});
-		button_3.setBounds(688, 29, 80, 23);
-		panel_2.add(button_3);
+		textField = new JTextField();
+		textField.setColumns(10);
+		textField.setBounds(256, 30, 106, 23);
+		panel_2.add(textField);
 
 		JPanel panel_3 = new JPanel();
 		panel_3.setBounds(0, 83, 822, 494);
 		panel_1.add(panel_3);
 		panel_3.setLayout(null);
 
-		table = new JTable(new PurchaseTableModel());
+		table = new JTable(new OutStoreTableModel());
 		JScrollPane scrollPane = new JScrollPane(table);
 		scrollPane.setBorder(new TitledBorder(new EtchedBorder()));
-		scrollPane.setBounds(0, 0, 822, 494);
+		scrollPane.setBounds(0, 0, 815, 494);
 		panel_3.add(scrollPane);
 
 	}

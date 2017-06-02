@@ -1,6 +1,7 @@
 package cn.edu.zzuli.user.frame;
 
 import java.awt.BorderLayout;
+import java.awt.CardLayout;
 import java.awt.Color;
 import java.awt.Cursor;
 import java.awt.event.MouseAdapter;
@@ -21,21 +22,30 @@ import javax.swing.JTable;
 import javax.swing.border.EtchedBorder;
 import javax.swing.border.TitledBorder;
 
-import cn.edu.zzuli.store.frame.inStore.InStorePanel;
+import cn.edu.zzuli.dept.frame.DeptPanel;
+import cn.edu.zzuli.emp.frame.EmpPanel;
+import cn.edu.zzuli.purchase.frame.PurchasePanel;
+import cn.edu.zzuli.record.frame.seller.SellerPanel;
+import cn.edu.zzuli.store.frame.StorePanel;
 import cn.edu.zzuli.utils.Format;
 
 /**
  * 
  * @author zhangjinfeng
- * @date 2017年5月24日上午9:17:51 TODO
+ * @date 2017年5月26日上午9:17:51 TODO
  */
 @SuppressWarnings("all")
 public class MainFrame {
 
 	public JFrame frame;
-
+	private JPanel panel_1 = null;
 	public JTable table = null;
 	public JPanel center = null;
+	public JPanel center1 = null;
+	public JPanel center2 = null;
+	public JPanel center3 = null;
+	public JPanel center4 = null;
+	public CardLayout card = null;
 
 	public MainFrame() {
 
@@ -72,6 +82,12 @@ public class MainFrame {
 			public void mouseExited(MouseEvent e) {
 				lblNewLabel.setBorder(null);
 			}
+
+			@Override
+			public void mouseClicked(MouseEvent e) {
+
+				card.show(getPanel(), "0");
+			}
 		});
 		panel.setLayout(null);
 		lblNewLabel.setIcon(new ImageIcon(MainFrame.class.getResource("/img/\u6863\u68482.png")));
@@ -90,6 +106,12 @@ public class MainFrame {
 			public void mouseExited(MouseEvent e) {
 				label.setBorder(null);
 			}
+
+			@Override
+			public void mouseClicked(MouseEvent e) {
+
+				card.show(getPanel(), "3");
+			}
 		});
 		label.setIcon(new ImageIcon(MainFrame.class.getResource("/img/\u6B63\u5E38\u91C7\u8D2D\u8BA2\u5355.png")));
 		panel.add(label);
@@ -107,6 +129,12 @@ public class MainFrame {
 			public void mouseExited(MouseEvent e) {
 				label_1.setBorder(null);
 			}
+
+			@Override
+			public void mouseClicked(MouseEvent e) {
+
+				card.show(getPanel(), "4");
+			}
 		});
 		label_1.setIcon(new ImageIcon(MainFrame.class.getResource("/img/库存管理.png")));
 		panel.add(label_1);
@@ -123,6 +151,12 @@ public class MainFrame {
 			@Override
 			public void mouseExited(MouseEvent e) {
 				label_3.setBorder(null);
+			}
+
+			@Override
+			public void mouseClicked(MouseEvent e) {
+
+				card.show(getPanel(), "2");
 			}
 		});
 		label_3.setIcon(new ImageIcon(MainFrame.class.getResource("/img/\u4EBA\u5458\u7BA1\u7406.png")));
@@ -142,6 +176,10 @@ public class MainFrame {
 				label_4.setBorder(null);
 			}
 
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				card.show(getPanel(), "1");
+			}
 		});
 		label_4.setIcon(new ImageIcon(MainFrame.class.getResource("/img/\u90E8\u95E8\u7BA1\u7406.png")));
 		panel.add(label_4);
@@ -166,17 +204,47 @@ public class MainFrame {
 		label_9.setBounds(776, 41, 54, 15);
 		panel.add(label_9);
 
-		JPanel panel_1 = new JPanel();
+		card = new CardLayout();
+		panel_1 = new JPanel();
 		panel_1.setBounds(0, 64, 994, 555);
 		panel_1.setBorder(new TitledBorder(new EtchedBorder()));
-		panel_1.setLayout(null);
+		panel_1.setLayout(card);
 
-		center = new InStorePanel(frame);
+		center4 = new StorePanel(frame);
+		center4.setBounds(0, 0, 990, 555);
+		center4.setBorder(new TitledBorder(new EtchedBorder()));
+		center4.setOpaque(false);
+
+		panel_1.add(center4, "4");
+
+		center = new SellerPanel(frame);
 		center.setBounds(0, 0, 990, 555);
 		center.setBorder(new TitledBorder(new EtchedBorder()));
 		center.setOpaque(false);
 
-		panel_1.add(center);
+		panel_1.add(center, "0");
+
+		center1 = new DeptPanel(frame);
+		center1.setBounds(0, 0, 990, 555);
+		center1.setBorder(new TitledBorder(new EtchedBorder()));
+		center1.setOpaque(false);
+
+		panel_1.add(center1, "1");
+
+		center2 = new EmpPanel(frame);
+		center2.setBounds(0, 0, 990, 555);
+		center2.setBorder(new TitledBorder(new EtchedBorder()));
+		center2.setOpaque(false);
+
+		panel_1.add(center2, "2");
+
+		center3 = new PurchasePanel(frame);
+		center3.setBounds(0, 0, 990, 555);
+		center3.setBorder(new TitledBorder(new EtchedBorder()));
+		center3.setOpaque(false);
+
+		panel_1.add(center3, "3");
+
 		panel_1.setBorder(new TitledBorder(new EtchedBorder()));
 		panel.add(panel_1);
 		JPanel panel_2 = new JPanel();
@@ -209,6 +277,11 @@ public class MainFrame {
 		frame.setVisible(true);
 		frame.setResizable(false);
 		frame.setDefaultCloseOperation(frame.EXIT_ON_CLOSE);
+	}
+
+	public JPanel getPanel() {
+
+		return panel_1;
 	}
 
 	public static void main(String[] args) {

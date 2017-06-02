@@ -33,23 +33,18 @@ public class InStorePanel extends JPanel {
 
 	public InStorePanel(final JFrame frame) {
 		service = new InStoreService();
-		this.setSize(994, 577);
+		this.setBounds(0, 0, 818, 577);
 		setLayout(null);
-
-		JPanel panel = new InStoreMenu();
-		panel.setBorder(new TitledBorder(new EtchedBorder()));
-		panel.setBounds(0, 0, 175, 577);
-		add(panel);
 
 		JPanel panel_1 = new JPanel();
 		panel_1.setBorder(new TitledBorder(new EtchedBorder()));
-		panel_1.setBounds(172, 0, 822, 577);
+		panel_1.setBounds(0, 0, 818, 577);
 		add(panel_1);
 		panel_1.setLayout(null);
 
 		JPanel panel_2 = new JPanel();
 		panel_2.setBorder(new TitledBorder(new EtchedBorder()));
-		panel_2.setBounds(0, 0, 822, 83);
+		panel_2.setBounds(0, 0, 818, 83);
 		panel_1.add(panel_2);
 		panel_2.setLayout(null);
 
@@ -133,14 +128,14 @@ public class InStorePanel extends JPanel {
 		panel_2.add(textField);
 
 		JPanel panel_3 = new JPanel();
-		panel_3.setBounds(0, 83, 822, 494);
+		panel_3.setBounds(0, 83, 818, 494);
 		panel_1.add(panel_3);
 		panel_3.setLayout(null);
 
 		table = new JTable(new InStoreTableModel());
 		JScrollPane scrollPane = new JScrollPane(table);
 		scrollPane.setBorder(new TitledBorder(new EtchedBorder()));
-		scrollPane.setBounds(0, 0, 822, 494);
+		scrollPane.setBounds(0, 0, 818, 494);
 		panel_3.add(scrollPane);
 
 	}

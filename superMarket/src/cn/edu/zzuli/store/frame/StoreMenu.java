@@ -1,4 +1,6 @@
-package cn.edu.zzuli.store.frame.inStore;
+package cn.edu.zzuli.store.frame;
+
+import java.awt.CardLayout;
 
 import javax.swing.JPanel;
 import javax.swing.JTree;
@@ -9,11 +11,11 @@ import javax.swing.tree.DefaultMutableTreeNode;
 /**
  * 
  * @author zhangjinfeng
- * @date 2017年5月31日上午11:17:51 TODO
+ * @date 2017年6月1日下午7:54:44 TODO
  */
-public class InStoreMenu extends JPanel {
+public class StoreMenu extends JPanel {
 
-	public InStoreMenu() {
+	public StoreMenu(final JPanel panel_1, final CardLayout card, final JPanel panel_2, final JPanel panel_3) {
 
 		DefaultMutableTreeNode node1 = new DefaultMutableTreeNode("仓库管理");
 		node1.add(new DefaultMutableTreeNode("入库管理"));
@@ -33,8 +35,19 @@ public class InStoreMenu extends JPanel {
 				if (node == null)
 					return;
 
-				System.out.println(node.getUserObject().toString());
+				if (node.getUserObject().toString().equals("入库管理")) {
+					card.show(panel_1, "0");
+				} else if (node.getUserObject().toString().equals("出库管理")) {
+					card.show(panel_1, "1");
+				} else if (node.getUserObject().toString().equals("入库报表")) {
+					card.show(panel_1, "2");
+					panel_2.repaint();
+				} else if (node.getUserObject().toString().equals("出库报表")) {
+					card.show(panel_1, "3");
+					panel_3.repaint();
+				}
 			}
 		});
 	}
+
 }
